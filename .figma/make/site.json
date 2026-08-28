@@ -1,0 +1,10 @@
+{
+  "description": "Offers a seamless platform to create, customize, and share interactive designs, enhancing collaboration and creativity for designers and teams.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
