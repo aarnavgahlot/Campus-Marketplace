@@ -1,4 +1,4 @@
-# Campus Marketplace
+# UniBazaar
 
 A student-to-student campus marketplace built with React, Vite, TypeScript, and Tailwind CSS. Students can discover affordable items nearby, connect with sellers, and keep useful things in circulation on campus.
 

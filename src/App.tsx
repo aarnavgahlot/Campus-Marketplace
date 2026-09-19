@@ -1,13 +1,13 @@
 ﻿import { useEffect, useMemo, useRef, useState } from "react"
 
 const TICKER_ITEMS = [
-  "● 248 ITEMS LISTED TODAY",
-  "● 37 STUDENTS SELLING",
-  "● 19 ITEMS REUSED THIS WEEK",
-  "● 12 NEW LISTINGS NEAR YOU",
+  "● WELCOME TO UNIBAZAAR",
+  "● YOUR CAMPUS. YOUR MARKETPLACE.",
+  "● BUY. SELL. REUSE.",
+  "● STUDENT-TO-STUDENT MARKETPLACE",
+  "● FIND IT. LIST IT. SELL IT.",
+  "● KEEP IT ON CAMPUS.",
   "● SAVE MONEY. REUSE MORE.",
-  "● AVG SAVING 1,400",
-  "● 0.4 KM AVERAGE DISTANCE",
   "● 100% STUDENT VERIFIED",
 ]
 
@@ -134,8 +134,8 @@ function Navbar({ onSell, onProfile }: { onSell: () => void; onProfile: () => vo
     <nav className="fixed z-50 top-4 left-1/2" style={{ transform: "translateX(-50%)", width: "min(94%, 1080px)" }}>
       <div className="flex items-center justify-between px-5 py-3 rounded-full border transition-all duration-300" style={{ background: scrolled ? "rgba(248,247,243,0.94)" : "rgba(248,247,243,0.72)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)", borderColor: scrolled ? "rgba(15,15,14,0.12)" : "rgba(15,15,14,0.08)", boxShadow: scrolled ? "0 8px 32px rgba(0,0,0,0.08)" : "none" }}>
         <div className="flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#F4511E", fontFamily: "var(--font-display)" }}>C</div>
-          <span className="hidden sm:block text-sm font-bold tracking-tight" style={{ fontFamily: "var(--font-display)", color: "#0F0F0E" }}>CAMPUS MARKETPLACE</span>
+          <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#F4511E", fontFamily: "var(--font-display)" }}>U</div>
+          <span className="hidden sm:block text-sm font-bold tracking-tight" style={{ fontFamily: "var(--font-display)", color: "#0F0F0E" }}>UNIBAZAAR</span>
         </div>
 
         <div className="hidden md:flex items-center gap-7">
@@ -214,14 +214,14 @@ function HeroSection({ onSell }: { onSell: () => void }) {
       <div className="relative z-10 text-center px-6 max-w-4xl">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-8 text-[10px] tracking-[0.28em] uppercase" style={{ borderColor: "rgba(15,15,14,0.1)", color: "rgba(15,15,14,0.4)", fontFamily: "var(--font-mono)", background: "rgba(255,255,255,0.6)" }}>
           <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#16A34A", animation: "pulseDot 2s ease-in-out infinite" }} />
-          ONE CAMPUS · ONE MARKETPLACE
+          UNIBAZAAR · YOUR CAMPUS. YOUR MARKETPLACE.
         </div>
 
         <h1 className="font-black uppercase leading-[0.86]" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(58px, 9.5vw, 136px)", letterSpacing: "-0.025em", color: "#0F0F0E" }}>
           YOUR CAMPUS<br />IS A<br /><span style={{ color: "#F4511E" }}>MARKETPLACE.</span>
         </h1>
 
-        <p className="mt-8 leading-relaxed max-w-md mx-auto" style={{ fontFamily: "var(--font-body)", fontSize: "clamp(14px, 1.4vw, 17px)", color: "rgba(15,15,14,0.55)" }}>Buy what you need. Sell what you don&apos;t. Keep everything within your campus.</p>
+        <p className="mt-8 leading-relaxed max-w-md mx-auto" style={{ fontFamily: "var(--font-body)", fontSize: "clamp(14px, 1.4vw, 17px)", color: "rgba(15,15,14,0.55)" }}>Buy what you need. Sell what you don&apos;t. Find it from students around you.</p>
 
         <div className="flex items-center justify-center gap-3 mt-10 flex-wrap">
           <button onClick={() => document.getElementById("marketplace")?.scrollIntoView({ behavior: "smooth" })} className="flex items-center gap-2 px-7 py-3.5 rounded-full text-white text-[11px] tracking-widest transition-all hover:opacity-90 hover:scale-105 active:scale-95" style={{ background: "#F4511E", fontFamily: "var(--font-mono)" }}>EXPLORE MARKETPLACE →</button>
@@ -430,7 +430,7 @@ function DisconnectSection() {
           </div>
         </div>
 
-        {stage === 2 && <div className="mt-12" style={{ animation: "fadeUp 0.5s ease forwards" }}><p className="text-lg" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.65)" }}>Campus Marketplace connects them.</p><div className="flex items-center justify-center gap-2 mt-3"><span className="w-2 h-2 rounded-full" style={{ background: "#16A34A", animation: "pulseDot 2s ease-in-out infinite" }} /><span className="text-[10px] tracking-widest uppercase" style={{ fontFamily: "var(--font-mono)", color: "#16A34A" }}>CONNECTED ON CAMPUS</span></div></div>}
+        {stage === 2 && <div className="mt-12" style={{ animation: "fadeUp 0.5s ease forwards" }}><p className="text-lg" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.65)" }}>UniBazaar connects them.</p><div className="flex items-center justify-center gap-2 mt-3"><span className="w-2 h-2 rounded-full" style={{ background: "#16A34A", animation: "pulseDot 2s ease-in-out infinite" }} /><span className="text-[10px] tracking-widest uppercase" style={{ fontFamily: "var(--font-mono)", color: "#16A34A" }}>CONNECTED ON CAMPUS</span></div></div>}
       </div>
     </section>
   )
@@ -630,11 +630,11 @@ function Footer() {
     <footer className="px-4 py-16 border-t" style={{ background: "#0F0F0E", borderColor: "rgba(255,255,255,0.06)" }}>
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div className="md:col-span-2"><div className="flex items-center gap-2.5 mb-4"><div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style={{ background: "#F4511E", fontFamily: "var(--font-display)" }}>C</div><span className="font-bold text-white tracking-tight" style={{ fontFamily: "var(--font-display)" }}>CAMPUS MARKETPLACE</span></div><p className="text-sm leading-relaxed max-w-xs" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.35)" }}>Built for students.<br />Powered by community.</p><div className="flex gap-2.5 mt-6">{['IG', 'TW', 'LI', 'DC'].map((s) => <button key={s} className="w-8 h-8 rounded-full border flex items-center justify-center text-[10px] transition-all hover:border-white/30 hover:text-white" style={{ fontFamily: "var(--font-mono)", borderColor: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.35)" }}>{s}</button>)}</div></div>
+          <div className="md:col-span-2"><div className="flex items-center gap-2.5 mb-4"><div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style={{ background: "#F4511E", fontFamily: "var(--font-display)" }}>U</div><span className="font-bold text-white tracking-tight" style={{ fontFamily: "var(--font-display)" }}>UNIBAZAAR</span></div><p className="text-sm leading-relaxed max-w-xs" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.35)" }}>Your Campus. Your Marketplace.<br />Buy. Sell. Reuse.</p><div className="flex gap-2.5 mt-6">{['IG', 'TW', 'LI', 'DC'].map((s) => <button key={s} className="w-8 h-8 rounded-full border flex items-center justify-center text-[10px] transition-all hover:border-white/30 hover:text-white" style={{ fontFamily: "var(--font-mono)", borderColor: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.35)" }}>{s}</button>)}</div></div>
           <div><p className="text-[9px] tracking-widest uppercase mb-4" style={{ fontFamily: "var(--font-mono)", color: "rgba(255,255,255,0.25)" }}>EXPLORE</p><div className="flex flex-col gap-3">{['Marketplace', 'Categories', 'Sell', 'How it works'].map((link) => <a key={link} href="#" className="text-sm transition-colors" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.45)" }}>{link}</a>)}</div></div>
           <div><p className="text-[9px] tracking-widest uppercase mb-4" style={{ fontFamily: "var(--font-mono)", color: "rgba(255,255,255,0.25)" }}>SUPPORT</p><div className="flex flex-col gap-3">{['Safety', 'Contact', 'Terms', 'Privacy'].map((link) => <a key={link} href="#" className="text-sm transition-colors" style={{ fontFamily: "var(--font-body)", color: "rgba(255,255,255,0.45)" }}>{link}</a>)}</div></div>
         </div>
-        <div className="pt-8 border-t flex items-center justify-between flex-wrap gap-4" style={{ borderColor: "rgba(255,255,255,0.06)" }}><p className="text-[10px] tracking-wider" style={{ fontFamily: "var(--font-mono)", color: "rgba(255,255,255,0.18)" }}>© 2025 CAMPUS MARKETPLACE · ALL RIGHTS RESERVED</p><p className="text-[10px] tracking-wider" style={{ fontFamily: "var(--font-mono)", color: "rgba(255,255,255,0.18)" }}>STUDENT VERIFIED · CAMPUS ONLY</p></div>
+        <div className="pt-8 border-t flex items-center justify-between flex-wrap gap-4" style={{ borderColor: "rgba(255,255,255,0.06)" }}><p className="text-[10px] tracking-wider" style={{ fontFamily: "var(--font-mono)", color: "rgba(255,255,255,0.18)" }}>© 2025 UNIBAZAAR · ALL RIGHTS RESERVED</p><p className="text-[10px] tracking-wider" style={{ fontFamily: "var(--font-mono)", color: "rgba(255,255,255,0.18)" }}>STUDENT VERIFIED · CAMPUS ONLY</p></div>
       </div>
     </footer>
   )
