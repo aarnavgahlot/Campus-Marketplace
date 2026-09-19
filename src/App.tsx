@@ -41,6 +41,104 @@ type ListingCategory = "BOOKS" | "ELECTRONICS" | "HOSTEL" | "OTHER"
 type ListingCondition = "NEW" | "LIKE NEW" | "GOOD"
 type ListingStatus = "active" | "sold"
 
+const COLLEGE_OPTIONS = [
+  "USICT — University School of Information, Communication & Technology (GGSIPU)",
+  "NSUT — Netaji Subhas University of Technology",
+  "MAIT — Maharaja Agrasen Institute of Technology",
+  "MSIT — Maharaja Surajmal Institute of Technology",
+  "DTU — Delhi Technological University",
+  "IIIT-Delhi — Indraprastha Institute of Information Technology Delhi",
+  "IGDTUW — Indira Gandhi Delhi Technical University for Women",
+  "IIT Delhi — Indian Institute of Technology Delhi",
+  "JNU — Jawaharlal Nehru University",
+  "JMI — Jamia Millia Islamia",
+  "DU — University of Delhi",
+  "AIIMS New Delhi",
+  "Ambedkar University Delhi",
+  "DSEU — Delhi Skill and Entrepreneurship University",
+  "DPSRU — Delhi Pharmaceutical Sciences and Research University",
+  "IGNOU — Indira Gandhi National Open University",
+  "Jamia Hamdard",
+  "NIFT Delhi — National Institute of Fashion Technology",
+  "NLU Delhi — National Law University Delhi",
+  "ADGITM — Dr. Akhilesh Das Gupta Institute of Technology & Management",
+  "BPIT — Bhagwan Parshuram Institute of Technology",
+  "BVCOE — Bharati Vidyapeeth's College of Engineering",
+  "DIAS — Delhi Institute of Advanced Studies",
+  "FIMT — Fairfield Institute of Management & Technology",
+  "GTBIT — Guru Tegh Bahadur Institute of Technology",
+  "MAIMS — Maharaja Agrasen Institute of Management Studies",
+  "MSI — Maharaja Surajmal Institute",
+  "Tecnia Institute of Advanced Studies",
+  "TIPS — Trinity Institute of Professional Studies",
+  "USAP — University School of Architecture & Planning",
+  "USAR — University School of Automation & Robotics",
+  "USLLS — University School of Law & Legal Studies",
+  "USMS — University School of Management Studies",
+  "VIPS — Vivekananda Institute of Professional Studies",
+  "Acharya Narendra Dev College",
+  "Aditi Mahavidyalaya",
+  "Aryabhatta College",
+  "Atma Ram Sanatan Dharma College",
+  "Bhagini Nivedita College",
+  "Bharati College",
+  "Bhaskaracharya College of Applied Sciences",
+  "Bhim Rao Ambedkar College",
+  "College of Vocational Studies",
+  "Daulat Ram College",
+  "Deen Dayal Upadhyaya College",
+  "Delhi College of Arts & Commerce",
+  "Deshbandhu College",
+  "Dyal Singh College",
+  "Gargi College",
+  "Hansraj College",
+  "Hindu College",
+  "Indraprastha College for Women",
+  "Institute of Home Economics",
+  "Janki Devi Memorial College",
+  "Jesus & Mary College",
+  "Kalindi College",
+  "Kamala Nehru College",
+  "Keshav Mahavidyalaya",
+  "Kirori Mal College",
+  "Lady Shri Ram College for Women",
+  "Lakshmibai College",
+  "Maharaja Agrasen College",
+  "Maitreyi College",
+  "Mata Sundri College for Women",
+  "Miranda House",
+  "Motilal Nehru College",
+  "P.G.D.A.V. College",
+  "Rajdhani College",
+  "Ram Lal Anand College",
+  "Ramanujan College",
+  "Ramjas College",
+  "Satyawati College",
+  "Shaheed Bhagat Singh College",
+  "Shaheed Sukhdev College of Business Studies",
+  "Shivaji College",
+  "Shri Ram College of Commerce",
+  "Shyam Lal College",
+  "Sri Aurobindo College",
+  "Sri Guru Gobind Singh College of Commerce",
+  "Sri Guru Nanak Dev Khalsa College",
+  "Sri Guru Tegh Bahadur Khalsa College",
+  "Sri Venkateswara College",
+  "St. Stephen's College",
+  "Swami Shraddhanand College",
+  "Vivekananda College",
+  "Amity University Noida",
+  "Bennett University",
+  "Galgotias College of Engineering & Technology",
+  "Galgotias University",
+  "Jaypee Institute of Information Technology",
+  "Manav Rachna International Institute of Research and Studies",
+  "Manav Rachna University",
+  "NIET — Noida Institute of Engineering & Technology",
+  "Sharda University",
+  "Shiv Nadar University",
+]
+
 interface Listing {
   id: number
   name: string
@@ -793,6 +891,7 @@ export default function App() {
               {pendingRequests.length === 0 ? <p className="text-sm" style={{ fontFamily: "var(--font-body)", color: "rgba(15,15,14,0.5)" }}>No requests yet.</p> : pendingRequests.slice(0, 4).map((request) => (
                 <div key={request.id} className="rounded-2xl border p-3" style={{ borderColor: "rgba(15,15,14,0.08)", background: "rgba(248,247,243,0.9)" }}>
                   <div className="flex items-center justify-between gap-3"><p className="font-bold" style={{ fontFamily: "var(--font-display)", color: "#0F0F0E" }}>{request.name}</p><span className="text-[8px] px-2 py-1 rounded-full" style={{ fontFamily: "var(--font-mono)", background: "#F4511E", color: "#FFFFFF" }}>{request.contactPreference}</span></div>
+                  <p className="mt-1 text-[10px]" style={{ fontFamily: "var(--font-mono)", color: "rgba(15,15,14,0.45)" }}>{listings.find((listing) => listing.id === request.listingId)?.campus}</p>
                   <p className="mt-2 text-sm" style={{ fontFamily: "var(--font-body)", color: "rgba(15,15,14,0.65)" }}>{request.message}</p>
                 </div>
               ))}
@@ -881,11 +980,8 @@ export default function App() {
                 <option value="LIKE NEW">Like New</option>
                 <option value="GOOD">Good</option>
               </select>
-              <select name="campus" className="rounded-2xl border px-4 py-3 outline-none" style={{ fontFamily: "var(--font-body)", borderColor: "rgba(15,15,14,0.12)", background: "#FFFFFF" }} defaultValue="USICT — Dwarka" required>
-                <option value="USICT — Dwarka">USICT — Dwarka</option>
-                <option value="DTU — Rohini">DTU — Rohini</option>
-                <option value="JNU — Delhi">JNU — Delhi</option>
-                <option value="IIT Delhi">IIT Delhi</option>
+              <select name="campus" className="rounded-2xl border px-4 py-3 outline-none" style={{ fontFamily: "var(--font-body)", borderColor: "rgba(15,15,14,0.12)", background: "#FFFFFF" }} defaultValue={COLLEGE_OPTIONS[0]} required>
+                {COLLEGE_OPTIONS.map((college) => <option key={college} value={college}>{college}</option>)}
               </select>
               <input name="sellerName" placeholder="Seller name*" className="rounded-2xl border px-4 py-3 outline-none" style={{ fontFamily: "var(--font-body)", borderColor: "rgba(15,15,14,0.12)", background: "#FFFFFF" }} defaultValue={profile.name} required />
               <select name="contactPreference" className="col-span-2 rounded-2xl border px-4 py-3 outline-none" style={{ fontFamily: "var(--font-body)", borderColor: "rgba(15,15,14,0.12)", background: "#FFFFFF" }} defaultValue="WhatsApp" required>
